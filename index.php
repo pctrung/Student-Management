@@ -1,32 +1,37 @@
 <?php
 
-	$dbhost = "localhost";
-	$dbuser = "root";
-	$dbpass = "mysql";
-	$databaseUse = "qldiem";
+    session_start();
+    require_once("./mvc/Bridge.php");
 
-    $connection = new mysqli($dbhost, $dbuser, $dbpass, $databaseUse);
+    $myApp = new App();
+    
+//     $dbhost = "103.124.94.177";
+//     $dbuser = "trungph091_vrb";
+//     $dbpass = "QgMbPUYht@0CTvq9KG";
+//     $databaseUse = "vrb_trungph091";
 
-    if($connection->connect_error){
-        die("Kết nối thất bại: " . $connection->connect_error);
-    }
+//     $db = new mysqli($dbhost, $dbuser, $dbpass, $databaseUse);
 
-    echo "Kết nối thành công <br/>";
+//     if($db->connect_error){
+//         die("Kết nối thất bại: " . $db->connect_error);
+//     }
 
-  
-    $sql = "select * from khoa";
+//     $sql = "call sp_LaySVTheoKhoa('di')";
+    
+//     $result = $db->query($sql);
 
-    $result = $connection->query($sql);
+//     if(!$result){
+//         echo("Error description: " . $db -> error);
+//     }
 
-    if($result->num_rows > 0){
-        while($row = $result->fetch_object()){
-            echo "Ma khoa: " . $row->maKhoa . " - Ten khoa: " . $row->tenKhoa . "<br/>";
-        }
-    }
-    else {
-        echo "Khong co du lieu nao";
-    }
+//     print_r($result->fetch_array());
+//     if($result->num_rows > 0){
+        
+//     }
+//     else {
+//         echo "Khong co du lieu nao";
+//     }
 
 
-    $connection->close();
+//    $db->close();
 ?>
