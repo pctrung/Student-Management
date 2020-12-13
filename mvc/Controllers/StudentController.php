@@ -2,6 +2,8 @@
     class StudentController extends Controller {
         private $student;
         private $classroom;
+        private $score;
+
         function __construct(){
             $this->student = $this->Model("Student");
             $this->classroom = $this->Model("Classroom");
@@ -32,7 +34,17 @@
             ];
             $this->View("students/edit", $data);
         }
+        function detail($maSV){
+            $student = $this->student->getByID($maSV);
+            $scores = $this->student->getScoreByID($maSV);
 
+            $data = [
+                'student' => $student,
+                'scores' => $scores
+            ];
+
+            $this->View("students/detail", $data);
+        }
         function store()
         {
             $student = $this->student->store($_POST);
@@ -50,9 +62,26 @@
             //
         }
 
-        function update()
+        function update($maSV)
         {
-            $student = $this->student->update($_POST);
+            $result = $this->student->update($_POST);
+            // var_dump( ($student == true));
+            // die();
+            if($result === true){
+                $_SESSION['alert']['success'] = true;
+                $_SESSION['alert']['messages'] = "Cập nhật thành công";
+            }else
+            {
+                $_SESSION['alert']['success'] = false;
+                $_SESSION['alert']['messages'] = $result;
+            }
+            header("Location: /Student/edit/" . $maSV);
+            //var_dump($_POST);
+        }
+
+        function delete($maSV)
+        {
+            $student = $this->student->delete($maSV);
             // var_dump( ($student == true));
             // die();
             if($student === true){
@@ -63,8 +92,8 @@
                 $_SESSION['alert']['success'] = false;
                 $_SESSION['alert']['messages'] = $student;
             }
-            header("Location: /Student/edit/" . $_POST['maSV']);
-            //
+            header("Location: /Student/index");
+            //var_dump($_POST);
         }
     }
 

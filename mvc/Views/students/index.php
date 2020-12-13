@@ -2,6 +2,7 @@
     require_once $_SERVER["DOCUMENT_ROOT"]."/mvc/Views/shared/header.php";
 ?>
 <body class="hold-transition sidebar-mini">
+<!-- Site wrapper -->
 <div class="wrapper">
     <?php
         require_once  $_SERVER["DOCUMENT_ROOT"] . "/mvc/Views/shared/nav_bar.php";
@@ -34,7 +35,7 @@
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title" >Danh sách sinh viên</h3>
-                <form method="GET" action="/Student/create">
+                <form method="POST" action="/Student/create">
                   <button type="submit" class="btn btn-info float-right">
                       Thêm
                   </button>
@@ -55,31 +56,32 @@
                   </tr>
                   </thead>
                   <tbody>
-                  <?php
-                    for($i = 1; $i < count($data['students']); $i++)
-                    {
-                        echo "<tr>
-                                <td>{$i}</td>
-                                <td>{$data['students'][$i]['maSV']}</td>
-                                <td>{$data['students'][$i]['tenSV']}</td>
-                                <td>{$data['students'][$i]['maLop']}</td>
-                                <td>{$data['students'][$i]['email']}</td>
-                                <td>{$data['students'][$i]['queQuan']}</td>
-                                <td class=\"project-actions text-right\">
-                                    <a class=\"btn btn-primary btn-sm\" href=\"/Student/edit\">
-                                        <i class=\"fas fa-folder\">
-                                        </i>
-                                        View
-                                    </a>
-                                    <a class=\"btn btn-danger btn-sm\" href=\"/Student/delete\">
-                                        <i class=\"fas fa-trash\">
-                                        </i>
-                                        Delete
-                                    </a>
-                                </td>
-                            </tr>";
-                    }
-                  ?>
+                  
+                  <?php foreach($data['students'] as $key => $student):  ?>
+                  <tr>
+                    <td><?php echo $key+1 ?></td>
+                    <td><?php echo $student['maSV'] ?></td>
+                    <td><?php echo $student['tenSV'] ?></td>
+                    <td><?php echo $student['maLop'] ?></td>
+                    <td><?php echo $student['email'] ?></td>
+                    <td><?php echo $student['queQuan'] ?></td>
+                    <td  class="project-actions text-right">
+                   
+                      <a class="btn btn-primary btn-sm " href="/Student/detail/<?php echo $student['maSV'] ?>">
+                          <i class="fas fa-folder">
+                          </i>
+                          Xem
+                      </a>
+                      <a class="btn btn-danger btn-sm" href="/Student/delete/<?php echo $student['maSV'] ?>">
+                          <i class="fas fa-trash">
+                          </i>
+                          Xoá
+                      </a>
+                            
+                    </td>
+                  </tr>
+                  <?php endforeach; ?>
+                  
                   </tbody>
                 </table>
               </div>
@@ -133,8 +135,8 @@
 <script>
   $(function () {
     $("#example1").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": false,
-      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+      "responsive": true, "lengthChange": true, "autoWidth": false,
+      "buttons": ["copy", "excel", "pdf", "colvis"], 
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
     $('#example2').DataTable({
       "paging": true,

@@ -20,7 +20,7 @@
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="/Home" ?>Sinh viên</a></li>
+                <li class="breadcrumb-item"><a href="/Student" ?>Sinh viên</a></li>
                 <li class="breadcrumb-item active">Thêm sinh viên</li>
                 </ol>
             </div>
@@ -54,21 +54,18 @@
                                     <div class="form-group">
                                         <label for="gioiTinh">Giới tính</label>
                                         <select required id="gioiTinh" name="gioiTinh" class="form-control custom-select">
-                                        <option disabled selected>Select one</option>
-                                        <option value="F">Nam</option>
-                                        <option value="M">Nữ</option>
+                                            <option disabled selected>Select one</option>
+                                            <option value="F">Nam</option>
+                                            <option value="M">Nữ</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="maLop">Mã lớp</label>
                                         <select required id="maLop" name="maLop" class="form-control custom-select">
                                             <option disable selected>Select one</option>
-                                            <?php 
-                                                for($i = 0; $i < count($data['classrooms']); $i++){
-                                                    $temp = $data['classrooms'][$i]['maLop'];
-                                                    echo "<option value=\"$temp\">$temp</option>";
-                                                }
-                                            ?>
+                                            <?php foreach($data['classrooms'] as $key => $classroom): ?>
+                                                <option value="<?php echo $classroom['maLop'] ?>"><?php echo $classroom['maLop'] ?></option>;
+                                            <?php endforeach ?>
                                         </select>
                                     </div>
                                     <div class="form-group">
@@ -95,9 +92,9 @@
                 <div class="row">
                     <div class="col-12">
                         <a class="btn btn-secondary" href="/Student" >
-                            Cancel
+                            Hủy
                         </a>
-                        <input type="submit" value="Save Changes" class="btn btn-success float-right">
+                        <input type="submit" value="Lưu" class="btn btn-success float-right">
                     </div>
                 </div>
             </form>

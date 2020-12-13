@@ -20,7 +20,7 @@
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="/Home" ?>Sinh viên</a></li>
+                <li class="breadcrumb-item"><a href="/Student/detail/<?php echo $data['student']['maSV']?>" ?>Thông tin</a></li>
                 <li class="breadcrumb-item active">Chỉnh sửa thông tin</li>
                 </ol>
             </div>
@@ -33,7 +33,7 @@
         <?php
             require_once $_SERVER["DOCUMENT_ROOT"]."/mvc/Views/shared/noti.php";
         ?>
-            <form action="/Student/update" method="POST">
+            <form action="/Student/update/<?php echo $data['student']['maSV']?>" method="POST">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card card-primary">
@@ -48,7 +48,7 @@
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="tenSV">Mã sinh viên</label>
-                                        <input type="text" name="maSV" id="tenSV" class="form-control" value = "<?php echo $data['student']['maSV']?>">
+                                        <input readonly type="text" name="maSV" id="tenSV" class="form-control" value="<?php echo $data['student']['maSV']?>">
                                         </input>
                                     </div>
                                     <div class="form-group">
@@ -59,13 +59,8 @@
                                     <div class="form-group">
                                         <label for="gioiTinh">Giới tính</label>
                                         <select required id="gioiTinh" name="gioiTinh" class="form-control custom-select">
-                                        <?php 
-                                            $gioiTinh = $data['student']['gioiTinh'];
-                                            $gioiTinh == "F" ? $gt = "Nam" : $gt = "Nữ";
-                                            echo "<option value=\"$gt\" selected>$gioiTinh</option>";
-                                        ?>
-                                        <option value="F">Nam</option>
-                                        <option value="M">Nữ</option>
+                                            <option <?php echo ($data['student']['gioiTinh'] == "F" ? "selected" : "");?> value="F">Nam</option>
+                                            <option <?php echo ($data['student']['gioiTinh'] == "M" ? "selected" : "");?> value="M">Nữ</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
@@ -74,15 +69,9 @@
                                             <option selected>
                                                 <?php echo $data['student']['maLop']?>
                                             </option>
-                                            <?php 
-                                                for($i = 0; $i < count($data['classrooms']); $i++){
-                                                    $temp = $data['classrooms'][$i]['maLop'];
-                                                    if($temp != $data['student']['maLop'])
-                                                    {
-                                                        echo "<option value=\"$temp\">$temp</option>";
-                                                    }
-                                                }
-                                            ?>
+                                            <?php foreach($data['classrooms'] as $key => $classroom): ?>
+                                                <option value="<?php echo $classroom['maLop'] ?>"><?php echo $classroom['maLop'] ?></option>;
+                                            <?php endforeach ?>
                                         </select>
                                     </div>
                                     <div class="form-group">
@@ -116,10 +105,10 @@
                 </div>  
                 <div class="row">
                     <div class="col-12">
-                        <a class="btn btn-secondary" href="/Student" >
-                            Cancel
+                        <a class="btn btn-secondary" href="/Student/detail/<?php echo $data['student']['maSV'];?>" >
+                            Hủy
                         </a>
-                        <input type="submit" value="Save Changes" class="btn btn-success float-right">
+                        <input type="submit" value="Lưu thay đổi" class="btn btn-success float-right">
                     </div>
                 </div>
             </form>

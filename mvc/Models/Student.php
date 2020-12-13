@@ -27,7 +27,10 @@
         }
         function update($data)
         {
-            $sql = "CALL sp_CapNhatSV('{$data['maSV']}', '{$data['maSV']}','{$data['maLop']}',"
+            // var_dump($data);
+            // die();
+            $maSV = (int)$data['maSV'];
+            $sql = "CALL sp_CapNhatSinhVien('{$maSV}', '{$maSV}','{$data['maLop']}',"
             . "'{$data['tenSV']}', '{$data['gioiTinh']}', '{$data['diaChi']}'," 
             . "'{$data['email']}', '{$data['ngaySinh']}', '{$data['queQuan']}')";
             $result = $this->db->query($sql);
@@ -75,6 +78,20 @@
 
             if($result->num_rows > 0){
                 return $result->fetch_assoc();
+            }
+            return 0;
+        }
+        function getScoreByID($maSV){
+            $sql = "CALL sp_LayDiemTheoMaSV('$maSV')";
+
+            $result = $this->db->query($sql);
+
+            if(!$result){
+                return $this->db->error;
+            }
+
+            if($result->num_rows > 0){
+                return $result->fetch_all(MYSQLI_ASSOC);
             }
             return 0;
         }
