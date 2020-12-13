@@ -11,7 +11,7 @@
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
-        <section class="content-header">
+    <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
             <div class="col-sm-6">
@@ -25,16 +25,16 @@
             </div>
             </div>
         </div><!-- /.container-fluid -->
-        </section>
+    </section>
 
-        <!-- Main content -->
-        <section class="content">
+    <!-- Main content -->
+    <section class="content">
         <div class="container-fluid">
-            <div class="row">
+        <div class="row">
             <div class="col-md-12">
 
                 <!-- Profile Image -->
-                <div class="card card-primary card-outline">
+            <div class="card card-primary card-outline">
                 <div class="card-body box-profile">
                     <div class="text-center">
                     <img class="profile-user-img img-fluid img-circle"
@@ -92,27 +92,48 @@
                     </div>
 
                     <a href="/Student/edit/<?php echo $data['student']['maSV'];?>" class="btn btn-primary btn-block"><b>Chỉnh sửa</b></a>
-                    <a href="/Student/delete/<?php echo $data['student']['maSV'];?>" class="btn btn-danger btn-block"><b>Xóa sinh viên</b></a>
+                    <a href="javascript:deleteConfirm(<?php echo $data['student']['maSV'];?>)"  class="btn btn-danger btn-block"><b>Xóa sinh viên</b></a>
                 </div>
                 <!-- /.card-body -->
-                </div>
-                <div class="card-body">
-                <table id="example1" class="table table-bordered table-striped">
-                  <thead>
-                  <tr>
-                    <th>STT</th>
-                    <th>Mã môn học</th>
-                    <th>Tên môn học</th>
-                    <th>Học kỳ</th>
-                    <th>Năm học</th>
-                    <th>Điểm</th>
-                    <th>Thao tác</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  
-                  <?php foreach($data['scores'] as $key => $score):  ?>
-                  <tr>
+            </div>
+                <!-- /.card -->
+            </div>
+        </div>
+        <!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </section>
+        <!-- /.content -->
+    <section class="content">
+    <div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+            <h3 class="card-title" >Kết quả</h3>
+            <form method="POST" action="/Student/create">
+                <button type="submit" class="btn btn-info float-right">
+                    Thêm
+                </button>
+            </form>
+            </div>
+            <div class="card-body">
+            <table id="example1" class="table table-bordered table-striped">
+            <thead>
+            <tr>
+                <th>STT</th>
+                <th>Mã môn học</th>
+                <th>Tên môn học</th>
+                <th>Học kỳ</th>
+                <th>Năm học</th>
+                <th>Điểm</th>
+                <th>Thao tác</th>
+            </tr>
+            </thead>
+            <tbody>
+            
+            <?php if($data['scores'] != NULL): ?>
+                <?php foreach($data['scores'] as $key => $score):  ?>
+                <tr>
                     <td><?php echo $key+1 ?></td>
                     <td><?php echo $score['maMH'] ?></td>
                     <td><?php echo $score['tenMH'] ?></td>
@@ -120,25 +141,29 @@
                     <td><?php echo $score['namHoc'] ?></td>
                     <td><?php echo $score['diem'] ?></td>
                     <td  class="project-actions text-right">                  
-                      <a class="btn btn-danger btn-sm" href="/Student/delete/<?php echo $student['maSV'] ?>">
-                          <i class="fas fa-trash">
-                          </i>
-                          Xoá
-                      </a>
+                    <a class="btn btn-danger btn-sm" href="/Student/delete/<?php echo $student['maSV'] ?>">
+                        <i class="fas fa-trash">
+                        </i>
+                        Xoá
+                    </a>
                     </td>
-                  </tr>
-                  <?php endforeach; ?>
-                  
-                  </tbody>
-                </table>
-              </div>
-                <!-- /.card -->
+                </tr>
+                <?php endforeach; ?>
+            <?php endif; ?>
+
+            </tbody>
+            </table>
             </div>
-            </div>
-            <!-- /.row -->
-        </div><!-- /.container-fluid -->
-        </section>
-        <!-- /.content -->
+            <!-- /.card-body -->
+        </div>
+         <!-- /.card -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+    </section>
     </div>
     <!-- /.content-wrapper -->
     <?php
@@ -171,10 +196,6 @@
 <script src="/public/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
 <script src="/public/plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="/public/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
-<!-- AdminLTE App -->
-<script src="/public/dist/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="/public/dist/js/demo.js"></script>
 <!-- Page specific script -->
 <script>
   $(function () {

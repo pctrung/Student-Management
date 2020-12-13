@@ -9,5 +9,7 @@
     <!-- AdminLTE for demo purposes -->
     <script src="/public/js/demo.js"></script>
 
+    <script src="/public/js/delete-confirm.js"></script>
+
     <strong>Đồ án Hệ quản trị Cơ sơ dữ liệu</strong> / Phạm Chí Trung - Hầu Diễm Xuân.
 </footer>

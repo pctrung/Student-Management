@@ -76,24 +76,21 @@
                 $_SESSION['alert']['messages'] = $result;
             }
             header("Location: /Student/edit/" . $maSV);
-            //var_dump($_POST);
         }
 
         function delete($maSV)
         {
-            $student = $this->student->delete($maSV);
-            // var_dump( ($student == true));
-            // die();
-            if($student === true){
+            $result = $this->student->delete($maSV);
+
+            if($result === true){
                 $_SESSION['alert']['success'] = true;
-                $_SESSION['alert']['messages'] = "Cập nhật thành công";
+                $_SESSION['alert']['messages'] = "Xóa thành công";
             }else
             {
                 $_SESSION['alert']['success'] = false;
-                $_SESSION['alert']['messages'] = $student;
-            }
+                $_SESSION['alert']['messages'] = $result;
+            }   
             header("Location: /Student/index");
-            //var_dump($_POST);
         }
     }
 

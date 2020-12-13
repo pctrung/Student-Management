@@ -26,7 +26,7 @@
         </div>
       </div><!-- /.container-fluid -->
     </section>
-
+    <?php require_once $_SERVER["DOCUMENT_ROOT"] . "/mvc/Views/shared/noti.php"; ?>
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
@@ -72,7 +72,7 @@
                           </i>
                           Xem
                       </a>
-                      <a class="btn btn-danger btn-sm" href="/Student/delete/<?php echo $student['maSV'] ?>">
+                      <a href="javascript:deleteConfirm(<?php echo $student['maSV'];?>)"  class="btn btn-danger btn-sm">
                           <i class="fas fa-trash">
                           </i>
                           Xoá

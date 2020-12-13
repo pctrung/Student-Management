@@ -39,6 +39,19 @@
             }
             return true;
         }
+        function delete($maSV){
+            
+            $sql = "DELETE FROM SINHVIEN WHERE maSV = '$maSV'";
+            // var_dump($sql);
+            // die();
+            $result = $this->db->query($sql);
+
+            if(!$result){
+                return $this->db->error;
+            }
+            
+            return true;
+        }
         function getByClass($maLop){
             $sql = "CALL sp_LaySVTheoLop('$maLop')";
             
@@ -95,9 +108,7 @@
             }
             return 0;
         }
-        function delete(){
-            
-        }
+
     }
 
 ?>
