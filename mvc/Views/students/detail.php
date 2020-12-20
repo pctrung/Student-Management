@@ -38,7 +38,7 @@
                 <div class="card-body box-profile">
                     <div class="text-center">
                     <img class="profile-user-img img-fluid img-circle"
-                        src="/public/img/<?php echo ($data['student']['gioiTinh'] == "F" ? "avatar_nam.png" : "avatar_nu.png"); ?>"
+                        src="/public/img/<?php echo ($data['student']['gioiTinh'] == "M" ? "avatar_nam.png" : "avatar_nu.png"); ?>"
                         alt="User profile picture">
                     </div>
 
