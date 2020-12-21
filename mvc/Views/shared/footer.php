@@ -11,5 +11,5 @@
 
     <script src="/public/js/delete-confirm.js"></script>
 
-    <strong>Đồ án Hệ quản trị Cơ sơ dữ liệu</strong> / Phạm Chí Trung - Hầu Diễm Xuân.
+    <strong>Đồ án Hệ quản trị Cơ sở dữ liệu</strong> / Phạm Chí Trung - Hầu Diễm Xuân.
 </footer>

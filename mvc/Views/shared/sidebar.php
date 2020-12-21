@@ -31,6 +31,14 @@
             </a>
           </li>
           <li class="nav-item">
+            <a href="/Teacher" class="nav-link">
+              <i class="nav-icon fas fa-chalkboard-teacher"></i>
+              <p>
+                Giáo viên
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="/Classroom" class="nav-link">
               <i class="nav-icon fas fa-users"></i>
               <p>

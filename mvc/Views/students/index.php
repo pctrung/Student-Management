@@ -72,7 +72,7 @@
                           </i>
                           Xem
                       </a>
-                      <a href="javascript:deleteConfirm(<?php echo $student['maSV'];?>)"  class="btn btn-danger btn-sm">
+                      <a href="javascript:studentDeleteConfirm(<?php echo $student['maSV'];?>);"  class="btn btn-danger btn-sm">
                           <i class="fas fa-trash">
                           </i>
                           Xoá
@@ -99,7 +99,7 @@
   </div>
   <!-- /.content-wrapper -->
     <?php
-        require_once  $_SERVER["DOCUMENT_ROOT"] ."/mvc/Views/shared/footer.php";
+      require_once  $_SERVER["DOCUMENT_ROOT"] ."/mvc/Views/shared/footer.php";
     ?>
 
   <!-- Control Sidebar -->

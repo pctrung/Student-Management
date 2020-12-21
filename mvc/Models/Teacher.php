@@ -1,7 +1,7 @@
 <?php
-    class Classroom extends Database{
+    class Teacher extends Database{
         function all(){
-            $sql = "SELECT * FROM v_DanhSachLop";
+            $sql = "SELECT * FROM v_DanhSachCoVan";
             
             $result = $this->db->query($sql);
 
@@ -16,8 +16,8 @@
         }
         function store($data)
         {
-            $sql = "CALL sp_ThemLop('{$data['maLop']}',"
-            . "'{$data['maCoVan']}', '{$data['tenLop']}', '{$data['khoaHoc']}')";
+            $sql = "CALL sp_ThemCoVan('{$data['maKhoa']}',"
+            . "'{$data['tenCoVan']}', '{$data['gioiTinh']}', '{$data['soDienThoai']}', '{$data['email']}')";
             $result = $this->db->query($sql);
             if(!$result){
                 return $this->db->error;
@@ -26,10 +26,8 @@
         }
         function update($data)
         {
-            // var_dump($data);
-            // die();
-            $sql = "CALL sp_CapNhatLop('{$data['maLop']}', '{$data['maLop']}',"
-            . "'{$data['tenLop']}', '{$data['maCoVan']}', '{$data['khoaHoc']}')";
+            $sql = "CALL sp_CapNhatCoVan('{$data['maCoVan']}', '{$data['maCoVan']}', '{$data['maKhoa']}',"
+            . "'{$data['tenCoVan']}', '{$data['gioiTinh']}', '{$data['soDienThoai']}', '{$data['email']}')";
             $result = $this->db->query($sql);
             if(!$result){
                 return $this->db->error;
@@ -37,7 +35,7 @@
             return true;
         }
         function getByCollege($maKhoa){
-            $sql = "SELECT * FROM v_DanhSachLop WHERE maKhoa = '$maKhoa'";
+            $sql = "SELECT * FROM v_DanhSachCoVan WHERE maKhoa = '$maKhoa'";
             
             $result = $this->db->query($sql);
 
@@ -51,7 +49,7 @@
             return 0;
         }
         function getTotal(){
-            $sql = "SELECT fn_SoLuongLop()";
+            $sql = "SELECT fn_SoLuongCoVan()";
             
             $result = $this->db->query($sql);
 

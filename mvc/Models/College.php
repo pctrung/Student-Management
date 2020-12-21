@@ -1,7 +1,7 @@
 <?php
-    class Classroom extends Database{
+    class College extends Database{
         function all(){
-            $sql = "SELECT * FROM v_DanhSachLop";
+            $sql = "SELECT * FROM v_DanhSachKhoa";
             
             $result = $this->db->query($sql);
 
@@ -16,8 +16,7 @@
         }
         function store($data)
         {
-            $sql = "CALL sp_ThemLop('{$data['maLop']}',"
-            . "'{$data['maCoVan']}', '{$data['tenLop']}', '{$data['khoaHoc']}')";
+            $sql = "CALL sp_ThemKhoa('{$data['maKhoa']}', '{$data['tenKhoa']}')";
             $result = $this->db->query($sql);
             if(!$result){
                 return $this->db->error;
@@ -26,32 +25,15 @@
         }
         function update($data)
         {
-            // var_dump($data);
-            // die();
-            $sql = "CALL sp_CapNhatLop('{$data['maLop']}', '{$data['maLop']}',"
-            . "'{$data['tenLop']}', '{$data['maCoVan']}', '{$data['khoaHoc']}')";
+            $sql = "CALL sp_CapNhatKhoa('{$data['maKhoa']}', '{$data['maKhoa']}', '{$data['tenKhoa']}')";
             $result = $this->db->query($sql);
             if(!$result){
                 return $this->db->error;
             }
             return true;
         }
-        function getByCollege($maKhoa){
-            $sql = "SELECT * FROM v_DanhSachLop WHERE maKhoa = '$maKhoa'";
-            
-            $result = $this->db->query($sql);
-
-            if(!$result){
-                return $this->db->error;
-            }
-
-            if($result->num_rows > 0){
-                return $result->fetch_all(MYSQLI_ASSOC);
-            }
-            return 0;
-        }
         function getTotal(){
-            $sql = "SELECT fn_SoLuongLop()";
+            $sql = "SELECT fn_SoLuongKhoa()";
             
             $result = $this->db->query($sql);
 

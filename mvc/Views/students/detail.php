@@ -29,6 +29,9 @@
 
     <!-- Main content -->
     <section class="content">
+        <?php
+            require_once $_SERVER["DOCUMENT_ROOT"]."/mvc/Views/shared/noti.php";
+        ?>
         <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
@@ -91,8 +94,12 @@
                         <p><?php echo $data['student']['diaChi'];?></p>
                     </div>
 
-                    <a href="/Student/edit/<?php echo $data['student']['maSV'];?>" class="btn btn-primary btn-block"><b>Chỉnh sửa</b></a>
-                    <a href="javascript:deleteConfirm(<?php echo $data['student']['maSV'];?>)"  class="btn btn-danger btn-block"><b>Xóa sinh viên</b></a>
+                    <a href="/Student/edit/<?php echo $data['student']['maSV'];?>" class="btn btn-primary btn-block">
+                        <b>Chỉnh sửa</b>
+                    </a>
+                    <a href="" onclick="studentDeleteConfirm(<?php echo $data['student']['maSV'];?>); return false;"  class="btn btn-danger btn-block">
+                        <b>Xóa sinh viên</b>
+                    </a>
                 </div>
                 <!-- /.card-body -->
             </div>
@@ -110,7 +117,7 @@
         <div class="card">
             <div class="card-header">
             <h3 class="card-title" >Kết quả</h3>
-            <form method="POST" action="/Student/create">
+            <form method="POST" action="/Result/create/<?php echo $data['student']['maSV']?>">
                 <button type="submit" class="btn btn-info float-right">
                     Thêm
                 </button>
@@ -131,21 +138,25 @@
             </thead>
             <tbody>
             
-            <?php if($data['scores'] != NULL): ?>
-                <?php foreach($data['scores'] as $key => $score):  ?>
+            <?php if($data['results'] != NULL): ?>
+                <?php foreach($data['results'] as $key => $result):  ?>
                 <tr>
                     <td><?php echo $key+1 ?></td>
-                    <td><?php echo $score['maMH'] ?></td>
-                    <td><?php echo $score['tenMH'] ?></td>
-                    <td><?php echo $score['hocKy'] ?></td>
-                    <td><?php echo $score['namHoc'] ?></td>
-                    <td><?php echo $score['diem'] ?></td>
-                    <td  class="project-actions text-right">                  
-                    <a class="btn btn-danger btn-sm" href="/Student/delete/<?php echo $student['maSV'] ?>">
-                        <i class="fas fa-trash">
-                        </i>
-                        Xoá
-                    </a>
+                    <td><?php echo $result['maMH'] ?></td>
+                    <td><?php echo $result['tenMH'] ?></td>
+                    <td><?php echo $result['hocKy'] ?></td>
+                    <td><?php echo $result['namHoc'] ?></td>
+                    <td><?php echo $result['diem'] ?></td>
+                    <td  class="project-actions text-right">  
+                        <a class="btn btn-primary btn-sm " href="/Result/edit/<?php echo $data['student']['maSV'] ?>/<?php echo $result['maMH'] ?>/<?php echo $result['namHoc']?>/<?php echo $result['hocKy']?>">
+                            <i class="fas fa-folder">
+                            </i>
+                            Sửa
+                        </a>
+                        <a href="" onclick="resultDeleteConfirm(<?php echo $data['student']['maSV'] ?>, '<?php echo $result['maMH'] ?>', '<?php echo $result['namHoc'] ?>', <?php echo $result['hocKy'] ?>); return false;"  class="btn btn-danger btn-sm">
+                            <i class="fas fa-trash"></i>
+                            Xoá
+                        </a> 
                     </td>
                 </tr>
                 <?php endforeach; ?>

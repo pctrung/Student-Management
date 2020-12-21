@@ -2,11 +2,12 @@
     class StudentController extends Controller {
         private $student;
         private $classroom;
-        private $score;
+        private $result;
 
         function __construct(){
             $this->student = $this->Model("Student");
             $this->classroom = $this->Model("Classroom");
+            $this->result = $this->Model("Result");
         }
         function index(){
             $students = $this->student->all();
@@ -36,13 +37,13 @@
         }
         function detail($maSV){
             $student = $this->student->getByID($maSV);
-            $scores = $this->student->getScoreByID($maSV);
+            $results = $this->result->getByID($maSV);
 
             $data = [
                 'student' => $student,
-                'scores' => $scores
+                'results' => $results
             ];
-
+            
             $this->View("students/detail", $data);
         }
         function store()

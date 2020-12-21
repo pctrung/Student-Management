@@ -15,12 +15,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Lớp</h1>
+            <h1>Giáo viên</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="/Home">Trang chủ</a></li>
-              <li class="breadcrumb-item active">Danh sách lớp</li>
+              <li class="breadcrumb-item active">Danh sách giáo viên</li>
             </ol>
           </div>
         </div>
@@ -34,7 +34,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title" >Danh sách lớp</h3>
+                <h3 class="card-title" >Danh sách giáo viên</h3>
                 <!-- <form method="POST" action="/Class/create">
                   <button type="submit" class="btn btn-info float-right">
                       Thêm
@@ -47,25 +47,23 @@
                   <thead>
                   <tr>
                     <th>STT</th>
-                    <th>Mã lớp</th>
-                    <th>Tên lớp</th>
-                    <th>Khóa học</th>
-                    <th>Tên cố vấn</th>
+                    <th>Mã giáo viên</th>
+                    <th>Tên giáo viên</th>
+                    <th>Email</th>
+                    <th>Số điện thoại</th>
                     <th>Tên khoa</th>
-                    <th>Tổng sinh viên</th>
                   </tr>
                   </thead>
                   <tbody>
                   
-                  <?php foreach($data['classrooms'] as $key => $classroom):  ?>
+                  <?php foreach($data['teachers'] as $key => $teacher):  ?>
                   <tr>
                     <td><?php echo $key+1 ?></td>
-                    <td><?php echo $classroom['maLop'] ?></td>
-                    <td><?php echo $classroom['tenLop'] ?></td>
-                    <td><?php echo $classroom['khoaHoc'] ?></td>
-                    <td><?php echo $classroom['tenCoVan'] ?></td>
-                    <td><?php echo $classroom['tenKhoa'] ?></td>
-                    <td><?php echo $classroom['soLuongSV'] ?></td>
+                    <td><?php echo $teacher['maCoVan'] ?></td>
+                    <td><?php echo $teacher['tenCoVan'] ?></td>
+                    <td><?php echo $teacher['email'] ?></td>
+                    <td><?php echo $teacher['soDienThoai'] ?></td>
+                    <td><?php echo $teacher['tenKhoa'] ?></td>
                   </tr>
                   <?php endforeach; ?>
                   

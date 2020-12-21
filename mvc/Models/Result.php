@@ -1,7 +1,7 @@
 <?php
-    class Classroom extends Database{
+    class Result extends Database{
         function all(){
-            $sql = "SELECT * FROM v_DanhSachLop";
+            $sql = "SELECT * FROM v_DanhSachKetQua";
             
             $result = $this->db->query($sql);
 
@@ -16,8 +16,9 @@
         }
         function store($data)
         {
-            $sql = "CALL sp_ThemLop('{$data['maLop']}',"
-            . "'{$data['maCoVan']}', '{$data['tenLop']}', '{$data['khoaHoc']}')";
+            $sql = "CALL sp_ThemKetQua('{$data['maSV']}',"
+            . "'{$data['maMH']}', '{$data['hocKy']}', '{$data['namHoc']}'," 
+            . "'{$data['diem']}')";
             $result = $this->db->query($sql);
             if(!$result){
                 return $this->db->error;
@@ -28,17 +29,32 @@
         {
             // var_dump($data);
             // die();
-            $sql = "CALL sp_CapNhatLop('{$data['maLop']}', '{$data['maLop']}',"
-            . "'{$data['tenLop']}', '{$data['maCoVan']}', '{$data['khoaHoc']}')";
+            $sql = "CALL sp_CapNhatKetQua({$data['maSV']}, '{$data['maMH']}',"
+            . "{$data['hocKy']}, '{$data['namHoc']}', {$data['maSV']},"
+            . "'{$data['maMH']}', {$data['hocKy']}, '{$data['namHoc']}',"
+            . "{$data['diem']})";
             $result = $this->db->query($sql);
             if(!$result){
                 return $this->db->error;
             }
             return true;
         }
-        function getByCollege($maKhoa){
-            $sql = "SELECT * FROM v_DanhSachLop WHERE maKhoa = '$maKhoa'";
+        function delete($data){
             
+            $sql = "CALL sp_XoaKetQua('{$data['maSV']}', '{$data['maMH']}', '{$data['hocKy']}','{$data['namHoc']}')";
+            // var_dump($sql);
+            // die();
+            $result = $this->db->query($sql);
+
+            if(!$result){
+                return $this->db->error;
+            }
+            
+            return true;
+        }
+        function getByID($maSV){
+            $sql = "CALL sp_LayKetQuaTheoMaSV('$maSV')";
+
             $result = $this->db->query($sql);
 
             if(!$result){
@@ -47,20 +63,6 @@
 
             if($result->num_rows > 0){
                 return $result->fetch_all(MYSQLI_ASSOC);
-            }
-            return 0;
-        }
-        function getTotal(){
-            $sql = "SELECT fn_SoLuongLop()";
-            
-            $result = $this->db->query($sql);
-
-            if(!$result){
-                return $this->db->error;
-            }
-
-            if($result->num_rows > 0){
-                return $result->fetch_array();
             }
             return 0;
         }

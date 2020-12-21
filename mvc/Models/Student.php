@@ -40,7 +40,6 @@
             return true;
         }
         function delete($maSV){
-            
             $sql = "DELETE FROM SINHVIEN WHERE maSV = '$maSV'";
             // var_dump($sql);
             // die();
@@ -94,9 +93,10 @@
             }
             return 0;
         }
-        function getScoreByID($maSV){
-            $sql = "CALL sp_LayDiemTheoMaSV('$maSV')";
-
+        
+        function getTotal(){
+            $sql = "SELECT fn_SoLuongSinhVien()";
+            
             $result = $this->db->query($sql);
 
             if(!$result){
@@ -104,11 +104,10 @@
             }
 
             if($result->num_rows > 0){
-                return $result->fetch_all(MYSQLI_ASSOC);
+                return $result->fetch_array();
             }
             return 0;
         }
-
     }
 
 ?>
