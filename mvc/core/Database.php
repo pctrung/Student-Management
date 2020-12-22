@@ -10,7 +10,7 @@
             $this->db= new mysqli($this->dbhost, $this->dbuser, $this->dbpass, $this->databaseUse);
 
             if($this->db->connect_error){
-                die("Kết nối thất bại: " . $db->connect_error);
+                die("Kết nối thất bại: " . $this->db->connect_error);
             }
             $this->db->set_charset("utf8");
         }
