@@ -23,7 +23,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="/Student" class="nav-link">
+            <a href="/Student" class="nav-link <?php if($this->currentRoute() == "Student"){ echo 'active'; } ?>">
               <i class="nav-icon fas fa-user"></i>
               <p>
                 Sinh viên
@@ -31,7 +31,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/Teacher" class="nav-link">
+            <a href="/Teacher" class="nav-link <?php if($this->currentRoute() == "Teacher"){ echo 'active'; } ?>">
               <i class="nav-icon fas fa-chalkboard-teacher"></i>
               <p>
                 Giáo viên
@@ -39,7 +39,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/Classroom" class="nav-link">
+            <a href="/Classroom" class="nav-link <?php if($this->currentRoute() == "Classroom"){ echo 'active'; } ?>">
               <i class="nav-icon fas fa-users"></i>
               <p>
                 Quản lý lớp
@@ -47,7 +47,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/College" class="nav-link">
+            <a href="/College" class="nav-link <?php if($this->currentRoute() == "College"){ echo 'active'; } ?>">
               <i class="nav-icon fas fa-university"></i>
               <p>
                 Quản lý khoa

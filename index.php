@@ -4,7 +4,8 @@
     require_once("./mvc/Bridge.php");
 
     $myApp = new App();
-    
+
+    // echo $myApp->route
 //     $dbhost = "103.124.94.177";
 //     $dbuser = "trungph091_vrb";
 //     $dbpass = "QgMbPUYht@0CTvq9KG";

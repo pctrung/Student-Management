@@ -49,6 +49,7 @@
                     <th>STT</th>
                     <th>Mã khoa</th>
                     <th>Tên khoa</th>
+                    <th>Tổng sinh viên</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -58,6 +59,7 @@
                     <td><?php echo $key+1 ?></td>
                     <td><?php echo $college['maKhoa'] ?></td>
                     <td><?php echo $college['tenKhoa'] ?></td>
+                    <td><?php echo $college['soLuongSV'] ?></td>
                   </tr>
                   <?php endforeach; ?>
                   

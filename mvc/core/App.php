@@ -1,6 +1,5 @@
 <?php
     class App{
-
         protected $controller = "Home";
         protected $action = "index";
         protected $params = [];
@@ -8,11 +7,11 @@
         function __construct(){           
             $arr = $this->UrlProcess();
             
-            
             if(file_exists("./mvc/Controllers/". $arr[0] . "Controller.php")){
                 $this->controller = $arr[0];
                 unset($arr[0]);
             }
+            $this->route = $this->controller;
             $this->controller = $this->controller . "Controller";
             
             require_once "./mvc/Controllers/". $this->controller . ".php";
