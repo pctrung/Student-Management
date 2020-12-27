@@ -14,13 +14,13 @@
           <img src="/public/img/trung.png" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="/About" class="d-block">Admin</a>
+          <a href="/About" class="d-block">Trung</a>
         </div>
         <div class="image">
           <img src="/public/img/xuandetail.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="/About" class="d-block">Admin</a>
+          <a href="/About" class="d-block">Xuân</a>
         </div>
       </div>
       <!-- Sidebar Menu -->
