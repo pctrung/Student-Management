@@ -1,5 +1,6 @@
 <?php
     class User extends Database{
+        private $user;
         function all(){
             $sql = "SELECT * FROM USER";
             
@@ -16,28 +17,11 @@
         }
         function store($data)
         {
-            $sql = "CALL sp_ThemSV('{$data['maLop']}',"
-            . "'{$data['tenSV']}', '{$data['gioiTinh']}', '{$data['diaChi']}'," 
-            . "'{$data['email']}', '{$data['ngaySinh']}', '{$data['queQuan']}')";
-            $result = $this->db->query($sql);
-            if(!$result){
-                return $this->db->error;
-            }
-            return true;
+            
         }
         function update($data)
         {
-            // var_dump($data);
-            // die();
-            $maSV = (int)$data['maSV'];
-            $sql = "CALL sp_CapNhatSinhVien('{$maSV}', '{$maSV}','{$data['maLop']}',"
-            . "'{$data['tenSV']}', '{$data['gioiTinh']}', '{$data['diaChi']}'," 
-            . "'{$data['email']}', '{$data['ngaySinh']}', '{$data['queQuan']}')";
-            $result = $this->db->query($sql);
-            if(!$result){
-                return $this->db->error;
-            }
-            return true;
+
         }
         
     }

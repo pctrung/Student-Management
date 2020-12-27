@@ -9,3 +9,9 @@ function resultDeleteConfirm(studentID, subjectID, year, semester){
         location.href = `/Result/delete/${studentID}/${subjectID}/${year}/${semester}`;
     }
 }
+
+function subjectDeleteConfirm(subjectID){
+    if(confirm(`Xóa môn học mã số ${subjectID}? Các kết quả của môn học này cũng sẽ bị xóa!`)){
+        location.href = `/Subject/delete/${subjectID}`;
+    }
+}

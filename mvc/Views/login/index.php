@@ -8,8 +8,7 @@
   <!-- /.login-logo -->
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <a href="#" class="h1">Đồ án DBMS</a>
-      <br>
+      <h4>Đồ án Hệ quản trị Cơ sở dữ liệu</h4>
       <a>Phạm Chí Trung - Hầu Diễm Xuân</a>
     </div>
     <div class="card-body">
@@ -48,20 +47,12 @@
           <!-- /.col -->
         </div>
       </form>
-
-      <p class="mb-0">
-        <a href="register.html" class="text-center">Register a new membership</a>
-      </p>
     </div>
     <!-- /.card-body -->
   </div>
   <!-- /.card -->
 </div>
 <!-- /.login-box -->
-
-<?php 
-  require_once  $_SERVER["DOCUMENT_ROOT"] ."/mvc/Views/shared/footer.php";
-?>
-
 </body>
+
 </html>

@@ -50,20 +50,17 @@
             }
             return 0;
         }
-        // function delete($data){
-            
-        //     $sql = "DELETE FROM KETQUA WHERE maSV = '{$data['maSV']}' AND maMH = '{$data['maMH']}' "
-        //     . "AND hocKy = '{$data['hocKy']}' AND namHoc = '{$data['namHoc']}'";
-        //     // var_dump($sql);
-        //     // die();
-        //     $result = $this->db->query($sql);
+        function delete($maMH){     
+            $sql = "DELETE FROM MONHOC WHERE maMH = $maMH";
 
-        //     if(!$result){
-        //         return $this->db->error;
-        //     }
+            $result = $this->db->query($sql);
+
+            if(!$result){
+                return $this->db->error;
+            }
             
-        //     return true;
-        // }
+            return true;
+        }
     }
 
 ?>

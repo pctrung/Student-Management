@@ -31,6 +31,14 @@
             </a>
           </li>
           <li class="nav-item">
+            <a href="/Subject" class="nav-link <?php if($this->currentRoute() == "Subject"){ echo 'active'; } ?>">
+              <i class="nav-icon fas fa-book"></i>
+              <p>
+                Môn học
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="/Teacher" class="nav-link <?php if($this->currentRoute() == "Teacher"){ echo 'active'; } ?>">
               <i class="nav-icon fas fa-chalkboard-teacher"></i>
               <p>

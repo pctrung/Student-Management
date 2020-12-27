@@ -149,7 +149,7 @@
                     <td><?php echo $result['diem'] ?></td>
                     <td  class="project-actions text-right">  
                         <a class="btn btn-primary btn-sm " href="/Result/edit/<?php echo $data['student']['maSV'] ?>/<?php echo $result['maMH'] ?>/<?php echo $result['namHoc']?>/<?php echo $result['hocKy']?>">
-                            <i class="fas fa-folder">
+                            <i class="fas fa-edit">
                             </i>
                             Sửa
                         </a>
