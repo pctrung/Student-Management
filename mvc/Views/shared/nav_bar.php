@@ -9,7 +9,7 @@
         <a href="/Home" class="nav-link">Trang chủ</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Về chúng tôi</a>
+        <a href="/About" class="nav-link">Về chúng tôi</a>
       </li>
     </ul>
     <!-- Right navbar links -->

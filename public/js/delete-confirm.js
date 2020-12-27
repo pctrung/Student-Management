@@ -11,7 +11,7 @@ function resultDeleteConfirm(studentID, subjectID, year, semester){
 }
 
 function subjectDeleteConfirm(subjectID){
-    if(confirm(`Xóa môn học mã số ${subjectID}? Các kết quả của môn học này cũng sẽ bị xóa!`)){
+    if(confirm(`Xóa môn học mã số ${subjectID}? Các kết quả về môn học này của các sinh viên khác cũng sẽ bị xóa!`)){
         location.href = `/Subject/delete/${subjectID}`;
     }
 }

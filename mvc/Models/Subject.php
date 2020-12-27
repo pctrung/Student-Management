@@ -51,7 +51,7 @@
             return 0;
         }
         function delete($maMH){     
-            $sql = "DELETE FROM MONHOC WHERE maMH = $maMH";
+            $sql = "DELETE FROM MONHOC WHERE maMH = '$maMH'";
 
             $result = $this->db->query($sql);
 
