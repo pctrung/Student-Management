@@ -50,7 +50,7 @@
                         <!-- small box -->
                         <div class="small-box bg-success">
                             <div class="inner">
-                                <h3><?php echo $data['totalTeachers'] ?><sup style="font-size: 20px">%</sup></h3>
+                                <h3><?php echo $data['totalTeachers'] ?></h3>
 
                                 <p>Giáo viên</p>
                             </div>
