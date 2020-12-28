@@ -33,7 +33,7 @@
 
             // chuc nang login
             if(!isset($_POST['btn_login']) && !isset($_SESSION['username'])){
-                if ($this->Controller != "LoginController") {
+                if ($this->controller != "LoginController") {
                     require_once "./mvc/Controllers/LoginController.php";
                     $this->controller = new LoginController;
     
