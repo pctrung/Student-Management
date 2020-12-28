@@ -51,11 +51,15 @@
                         <p class="text-muted text-center">Web Developer | Designer</p>
 
                         <ul class="list-group list-group-unbordered mb-3">
+                            
                             <li class="list-group-item">
-                                <b>Trường</b> <a class="float-right">Đại học Cần Thơ</a>
+                                <b>Mã số sinh viên</b> <a class="float-right">B1809424</a>
                             </li>
                             <li class="list-group-item">
                                 <b>Chuyên ngành</b> <a class="float-right">Công nghệ thông tin</a>
+                            </li>
+                            <li class="list-group-item">
+                                <b>Trường</b> <a class="float-right">Đại học Cần Thơ</a>
                             </li>
                             <li class="list-group-item">
                                 <b>Email</b> <a class="float-right">chitrung110268@gmail.com</a>
@@ -100,11 +104,15 @@
                         <p class="text-muted text-center">Web Developer</p>
 
                         <ul class="list-group list-group-unbordered mb-3">
+                            
                             <li class="list-group-item">
-                                <b>Trường</b> <a class="float-right">Đại học Cần Thơ</a>
+                                <b>Mã số sinh viên</b> <a class="float-right">B1809433</a>
                             </li>
                             <li class="list-group-item">
                                 <b>Chuyên ngành</b> <a class="float-right">Công nghệ thông tin</a>
+                            </li>
+                            <li class="list-group-item">
+                                <b>Trường</b> <a class="float-right">Đại học Cần Thơ</a>
                             </li>
                             <li class="list-group-item">
                                 <b>Email</b> <a class="float-right">xuanb1809433@student.ctu.edu.vn</a>
