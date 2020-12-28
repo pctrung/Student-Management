@@ -5,6 +5,7 @@
         protected $params = [];
 
         function __construct(){   
+            // chuc nang login
             if(isset($_SESSION['username'])){
                 $this->controller = "Home";
             }
@@ -30,6 +31,7 @@
 
             $this->params = $arr ? array_values($arr) : [];
 
+            // chuc nang login
             if(!isset($_POST['btn_login']) && !isset($_SESSION['username'])){
                 if ($this->Controller != "LoginController") {
                     require_once "./mvc/Controllers/LoginController.php";
