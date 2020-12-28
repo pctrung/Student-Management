@@ -1,10 +1,14 @@
 <?php
     class App{
-        protected $controller = "Home";
+        protected $controller = "Login";
         protected $action = "index";
         protected $params = [];
 
-        function __construct(){           
+        function __construct(){   
+            if(isset($_SESSION['username'])){
+                $this->controller = "Home";
+            }
+            
             $arr = $this->UrlProcess();
             
             if(file_exists("./mvc/Controllers/". $arr[0] . "Controller.php")){
@@ -26,7 +30,17 @@
 
             $this->params = $arr ? array_values($arr) : [];
 
+            if(!isset($_POST['btn_login']) && !isset($_SESSION['username'])){
+                if ($this->Controller != "LoginController") {
+                    require_once "./mvc/Controllers/LoginController.php";
+                    $this->controller = new LoginController;
+    
+                    $this->action = "index";
+                }
+            }
+
             call_user_func_array([$this->controller, $this->action], $this->params);
+            
         }
         
         function UrlProcess(){

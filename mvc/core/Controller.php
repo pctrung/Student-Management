@@ -1,5 +1,6 @@
 <?php
     class Controller{
+   
         private $route;
 
         function Model($model){
