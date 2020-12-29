@@ -94,7 +94,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="email">Email</label>
-                                        <input required type="text" id="email" name="email" value="<?php echo $data['student']['email']?>" class="form-control">
+                                        <input required type="email" id="email" name="email" value="<?php echo $data['student']['email']?>" class="form-control">
                                             
                                         </input>
                                     </div>

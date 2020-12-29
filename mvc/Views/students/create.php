@@ -82,7 +82,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="email">Email</label>
-                                        <input required type="text" id="email" name="email" class="form-control">
+                                        <input required type="email" id="email" name="email" class="form-control">
                                     </div>
                                 </div>
                             <!-- /.card-body -->
