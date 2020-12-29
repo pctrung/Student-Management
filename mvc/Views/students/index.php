@@ -26,9 +26,10 @@
         </div>
       </div><!-- /.container-fluid -->
     </section>
-    <?php require_once $_SERVER["DOCUMENT_ROOT"] . "/mvc/Views/shared/noti.php"; ?>
+    
     <!-- Main content -->
     <section class="content">
+      <?php require_once $_SERVER["DOCUMENT_ROOT"] . "/mvc/Views/shared/noti.php"; ?>
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
