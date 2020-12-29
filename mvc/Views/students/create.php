@@ -55,8 +55,8 @@
                                         <label for="gioiTinh">Giới tính</label>
                                         <select required id="gioiTinh" name="gioiTinh" class="form-control custom-select">
                                             <option disabled selected>Select one</option>
-                                            <option value="F">Nam</option>
-                                            <option value="M">Nữ</option>
+                                            <option value="M">Nam</option>
+                                            <option value="F">Nữ</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
