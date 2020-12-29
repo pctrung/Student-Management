@@ -59,8 +59,8 @@
                                     <div class="form-group">
                                         <label for="gioiTinh">Giới tính</label>
                                         <select required id="gioiTinh" name="gioiTinh" class="form-control custom-select">
-                                            <option <?php echo ($data['student']['gioiTinh'] == "F" ? "selected" : "");?> value="F">Nam</option>
-                                            <option <?php echo ($data['student']['gioiTinh'] == "M" ? "selected" : "");?> value="M">Nữ</option>
+                                            <option <?php echo ($data['student']['gioiTinh'] == "F" ? "selected" : "");?> value="F">Nữ</option>
+                                            <option <?php echo ($data['student']['gioiTinh'] == "M" ? "selected" : "");?> value="M">Nam</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
