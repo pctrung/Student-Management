@@ -27,7 +27,7 @@
                 }
                 else if($results['isSuccess'] == true){
                     $_SESSION['username'] = $username;
-                    $this->View("Home/index", []);
+                    header("Location: /Home");
                 }
             }
             $this->View("login/index", []);

@@ -49,6 +49,12 @@
             if(isset($_GET["url"])){
                 return explode("/", filter_var(trim($u = $_GET["url"])));
             }
+            else if (!isset($_GET["url"])){
+                return [
+                    'Home',
+                    'index'
+                ];
+            }
         }
     }
 
