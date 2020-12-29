@@ -30,7 +30,7 @@ class LoginController extends Controller
                 $this->View("login/index", []);
             } else if ($results['isSuccess'] == true) {
                 $_SESSION['username'] = $username;
-                echo "<script>window.location.replace('https://trungpham.me/');</script>";
+                header("Location: /Home");
             }
         }
         $this->View("login/index", []);
