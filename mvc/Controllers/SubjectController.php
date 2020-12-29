@@ -27,18 +27,18 @@
         }
         function store()
         {
-            $subject = $this->subject->store($_POST);
-            // var_dump( ($subject == true));
+            $result = $this->subject->store($_POST);
+            // var_dump( $result );
             // die();
-            if($subject === true){
+            if($result === true){
                 $_SESSION['alert']['success'] = true;
                 $_SESSION['alert']['messages'] = "Tạo thành công";
-            }else
+            }else if(result === false)
             {
                 $_SESSION['alert']['success'] = false;
-                $_SESSION['alert']['messages'] = $subject;
+                $_SESSION['alert']['messages'] = $result;
             }
-            header('Location: /subject/create');
+            header('Location: /Subject/create');
         }
 
         function edit($maMH){
