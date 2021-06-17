@@ -155,3 +155,6 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/mvc/Views/shared/header.php";
         <!-- /.control-sidebar -->
     </div>
     <!-- ./wrapper -->
+
+    <div class="footer">
+        đây là footer</div>
