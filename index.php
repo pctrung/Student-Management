@@ -6,4 +6,5 @@
 
     $myApp = new App();
 
+$index;
 ?>
