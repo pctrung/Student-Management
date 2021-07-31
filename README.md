@@ -1,3 +1,2 @@
-# dbms-project
+# StudentManager-Admin
 My project of the subject of database management system.
-About Student Management System.
