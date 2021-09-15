@@ -2,5 +2,5 @@
 - Projects for school subjects - Database management systems
 
 ## Tech Stack
-- PHP
+- PHP (MVC)
 - Bootstrap
