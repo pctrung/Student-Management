@@ -1,4 +1,4 @@
-# Student Manager System
+# Student Management
 - Projects for school subjects - Database management systems
 
 ## Tech Stack
