@@ -1,5 +1,5 @@
 # Student Manager Admin
-- My school project on the subject of database management systems.
+- Projects for school subjects - Database management systems
 
 ## Tech Stack
 - PHP
